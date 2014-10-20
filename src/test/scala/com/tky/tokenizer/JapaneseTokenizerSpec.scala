@@ -15,8 +15,8 @@ class JapaneseTokenizerSpec extends FunSpec with Matchers {
       JapaneseTokenizer.toKatakana("アイ愛あい") should be("アイアイアイ")
     }
 
-    it("should analyze document") {
-      val tokens = JapaneseTokenizer.analyze("家に帰る")
+    it("should tokenize document") {
+      val tokens = JapaneseTokenizer.tokenize("家に帰る")
       tokens.size should be(3)
       tokens(0).value should be("家")
       tokens(0).kana should be("イエ")

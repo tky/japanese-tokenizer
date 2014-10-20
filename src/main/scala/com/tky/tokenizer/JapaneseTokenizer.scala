@@ -8,19 +8,17 @@ import collection.JavaConversions._
 object JapaneseTokenizer {
 
   lazy val tokenizer: Tokenizer = Tokenizer.builder.build
-  def analyze(document: String): List[Element] = {
+  def tokenize(document: String): List[Element] = {
     tokenizer.tokenize(document).map {
       token: Token => convert(token)
     } toList
   }
 
   def toKatakana(document: String): String = {
-    analyze(document) map { _.kana } mkString
+    tokenize(document) map { _.kana } mkString
   }
-
 
   private def convert(token: Token): Element = {
     Element(token.getSurfaceForm, ObjectUtils.firstNonNull(token.getReading, token.getSurfaceForm), WordClass(token.getAllFeatures().split(",").head))
   }
-
 }
