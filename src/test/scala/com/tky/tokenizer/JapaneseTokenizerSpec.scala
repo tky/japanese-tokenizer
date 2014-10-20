@@ -1,4 +1,4 @@
-package tokenizer
+package com.tky.tokenizer
 
 import org.scalatest.{ FunSpec, Matchers }
 

@@ -1,4 +1,4 @@
-package tokenizer
+package com.tky.tokenizer
 
 import org.apache.commons.lang3._
 import org.atilika.kuromoji._

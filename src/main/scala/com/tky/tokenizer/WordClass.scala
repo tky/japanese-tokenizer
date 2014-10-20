@@ -1,4 +1,4 @@
-package tokenizer
+package com.tky.tokenizer
 
 sealed trait WordClass
 case object Noun extends WordClass
