@@ -33,5 +33,15 @@ class JapaneseTokenizerSpec extends FunSpec with Matchers {
     it("should be latin") {
       JapaneseTokenizer.toLatin("日曜日") should be("nichiyoubi")
     }
+
+    it("should translate ー") {
+      JapaneseTokenizer.toHiragana("スーパーマーケット") should be("すーぱーまーけっと")
+    }
+
+    it("should translate ゔぁ") {
+      JapaneseTokenizer.toHiragana("ヴァンパイア") should be("ゔぁんぱいあ")
+      JapaneseTokenizer.toHiragana("ヴぁンパイア") should be("ゔぁんぱいあ")
+      JapaneseTokenizer.toHiragana("ゔァンパイア") should be("ゔぁんぱいあ")
+    }
   }
 }

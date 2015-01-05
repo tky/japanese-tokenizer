@@ -22,7 +22,9 @@ object JapaneseTokenizer {
   }
 
   def toHiragana(document: String): String = {
-    kataToHira.transliterate(toKatakana(document))
+    document.split("ー").map { doc =>
+      kataToHira.transliterate(toKatakana(doc))
+    }.mkString("ー")
   }
 
   def toLatin(document: String): String = {
