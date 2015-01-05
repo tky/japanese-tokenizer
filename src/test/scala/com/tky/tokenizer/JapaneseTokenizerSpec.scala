@@ -25,5 +25,9 @@ class JapaneseTokenizerSpec extends FunSpec with Matchers {
       tokens(2).value should be("帰る")
       tokens(2).wordClass should be(Verb)
     }
+
+    it("should to hiragana") {
+      JapaneseTokenizer.toHiragana("明日は晴れるかなぁ。") should be("あしたははれるかなぁ。")
+    }
   }
 }
