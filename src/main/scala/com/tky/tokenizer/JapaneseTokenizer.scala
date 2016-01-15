@@ -9,8 +9,8 @@ import com.ibm.icu.text._
 object JapaneseTokenizer {
 
   lazy val tokenizer: Tokenizer = Tokenizer.builder.build
-  lazy val kataToHira = Transliterator.getInstance("Katakana-Hiragana");
-  lazy val hiraToLatin = Transliterator.getInstance("Hiragana-Latin");
+  lazy val kataToHira = Transliterator.getInstance("Katakana-Hiragana")
+  lazy val hiraToLatin = Transliterator.getInstance("Hiragana-Latin")
   def tokenize(document: String): List[Element] = {
     tokenizer.tokenize(document).map {
       token: Token => convert(token)
