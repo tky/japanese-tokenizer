@@ -15,7 +15,7 @@ object TranslatorBuild extends Build {
   val baseDependency = Seq(
     "org.scalatest" % "scalatest_2.10" % "2.0" % "test",
     "org.atilika.kuromoji" % "kuromoji" % "0.7.7",
-    "com.ibm.icu" % "icu4j" % "54.1.1",
+    "com.ibm.icu" % "icu4j" % "56.1",
     "org.apache.commons" % "commons-lang3" % "3.1"
   )
 
