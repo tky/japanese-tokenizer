@@ -5,18 +5,11 @@ object TranslatorBuild extends Build {
 
   lazy val _version = "0.0.1"
 
-/*
-  lazy val root = Project(
-    id = "root",
-    base = file(".")
-  ).aggregate(translator)
-  */
-
   val baseDependency = Seq(
-    "org.scalatest" % "scalatest_2.10" % "2.0" % "test",
     "org.atilika.kuromoji" % "kuromoji" % "0.7.7",
-    "com.ibm.icu" % "icu4j" % "56.1",
-    "org.apache.commons" % "commons-lang3" % "3.1"
+    "com.ibm.icu" % "icu4j" % "58.2",
+    "org.apache.commons" % "commons-lang3" % "3.1",
+    "org.scalatest" % "scalatest_2.11" % "3.0.1" % "test"
   )
 
   lazy val main = Project (
@@ -26,7 +19,7 @@ object TranslatorBuild extends Build {
       name := "translator",
       organization := "com.github.tky",
       version := _version,
-      scalaVersion := "2.10.2",
+      scalaVersion := "2.11.8",
       resolvers ++= Seq(
         "ATILIKA dependencies" at "http://www.atilika.org/nexus/content/repositories/atilika"
       ),
