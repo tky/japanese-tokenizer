@@ -1,14 +1,14 @@
 package com.tky.tokenizer
 
 import org.apache.commons.lang3._
-import org.atilika.kuromoji._
-import org.atilika.kuromoji.Tokenizer.Builder
-import collection.JavaConversions._
+import com.atilika.kuromoji.ipadic.Token;
+import com.atilika.kuromoji.ipadic.Tokenizer;
 import com.ibm.icu.text._
+import collection.JavaConversions._
 
 object JapaneseTokenizer {
 
-  lazy val tokenizer: Tokenizer = Tokenizer.builder.build
+  lazy val tokenizer: Tokenizer = new Tokenizer()
   lazy val kataToHira = Transliterator.getInstance("Katakana-Hiragana")
   lazy val hiraToLatin = Transliterator.getInstance("Hiragana-Latin")
   def tokenize(document: String): List[Element] = {
@@ -32,6 +32,8 @@ object JapaneseTokenizer {
   }
 
   private def convert(token: Token): Element = {
-    Element(token.getSurfaceForm, ObjectUtils.firstNonNull(token.getReading, token.getSurfaceForm), WordClass(token.getAllFeatures().split(",").head))
+    Element(token.getSurface,
+    if (token.getReading == "*")  token.getSurface else token.getReading,
+     WordClass(token.getAllFeatures().split(",").head))
   }
 }
