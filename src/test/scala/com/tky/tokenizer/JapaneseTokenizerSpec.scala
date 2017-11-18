@@ -28,6 +28,7 @@ class JapaneseTokenizerSpec extends FunSpec with Matchers {
 
     it("should to hiragana") {
       JapaneseTokenizer.toHiragana("明日は晴れるかなぁ。") should be("あしたははれるかなぁ。")
+      JapaneseTokenizer.toHiragana("今日の晩ご飯は湯豆腐") should be("きょうのばんごはんはゆどうふ")
     }
 
     it("should be latin") {

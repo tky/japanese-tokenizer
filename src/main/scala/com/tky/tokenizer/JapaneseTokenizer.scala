@@ -4,7 +4,7 @@ import org.apache.commons.lang3._
 import com.atilika.kuromoji.ipadic.Token;
 import com.atilika.kuromoji.ipadic.Tokenizer;
 import com.ibm.icu.text._
-import collection.JavaConversions._
+import scala.collection.JavaConversions._
 
 object JapaneseTokenizer {
 
